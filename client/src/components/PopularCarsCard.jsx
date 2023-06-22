@@ -26,7 +26,7 @@ const PopularCarsCard = (props) => {
         <p className='flex flex-row items-center text-xs text-[#90A3BF]'><BsPeopleFill size={16} color='#90A3BF' /> {props.seats}</p>
       </div>
 
-      <div className='flex flex-row items-center justify-between'>
+      <div className='flex flex-row items-center justify-between mt-12'>
         <div className='text-[#1A202C] font-semibold text-lg'>
           <p>R {props.price}</p>
         </div>
