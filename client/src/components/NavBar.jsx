@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className='flex flex-row absolute top-0 justify-between items-center p-6 w-full h-14'>
+    <div className='flex flex-row fixed top-0 left-0 right-0 justify-between items-center p-6 w-full h-14 bg-white'>
         <div className='text-xl text-[#3563E9] font-semibold'>
             Cars4Youth
         </div>
