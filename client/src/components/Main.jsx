@@ -7,7 +7,7 @@ import HomeContent from './HomeContent'
 const Main = () => {
   return (
     <div className='w-full top-16 absolute p-6'>
-        <SearchBar/>
+        {/* <SearchBar/> */}
         <Hero/>
         <HomeContent/>
     </div>
