@@ -3,7 +3,7 @@ import vw from '../assets/vw.png'
 import Hero2 from './Hero2';
 
 const Hero = () => {
-    const [screenWidth, setScreenW] = useState(0);
+    const [screenWidth, setScreenW] = useState(window.innerWidth);
 
     useEffect(() => {
         function handleResize() {
