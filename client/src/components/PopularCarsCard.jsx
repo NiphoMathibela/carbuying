@@ -7,7 +7,7 @@ import MainButton from './MainButton'
 
 const PopularCarsCard = (props) => {
   return (
-    <div className=' w-60 h-72 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 relative'>
+    <div className=' w-60 h-72 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 mr-3'>
       <div className='flex flex-row items-center justify-between'>
         <p className='text-[#1A202C] font-semibold text-base'>{props.car}</p>
         <IoHeartOutline size={24} color='#90A3BF' />
