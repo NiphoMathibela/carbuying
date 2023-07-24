@@ -1,39 +1,67 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectFlip, Navigation, Pagination } from 'swiper';
 import 'swiper/css';
-import React, {useEffect, useState} from 'react'
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import React, { useEffect, useState } from 'react'
 import PopularCarsCard from './PopularCarsCard';
 import { carData } from '../assets/carData';
 
 const Slider = () => {
 
-    const [screenWidth, setScreenW] = useState(window.innerWidth);
-    const [slideSize, setSlideSize] = useState(1.4);
-
-    useEffect(() => {
-        function handleResize() {
-
-            setScreenW(window.innerWidth);
-
-            if(screenWidth >= 390 ){
-                setSlideSize(6)
-            }else if(screenWidth >= 420){
-                setSlideSize(2)
-            } else if(screenWidth >= 700){
-                setSlideSize(4)
-            }
-            else{
-                setScreenW(1.4)
-            }
-        }
-        window.addEventListener('resize', handleResize)
-    })
-
     return (
         <Swiper
-            spaceBetween={30}
-            slidesPerView={1.6}
+            spaceBetween={20}
+            modules={[Navigation, Pagination]}
+            navigation={true}
+            pagination={{ clickable: true }}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
+            breakpoints={{
+                300: {
+                    slidesPerView: 1.4,
+                    showSwitchArrows: false
+                },
+                450: {
+                    slidesPerView: 1.6,
+                },
+                500: {
+                    slidesPerView: 1.8
+                },
+                570: {
+                    slidesPerView: 2.2
+                },
+                620: {
+                    slidesPerView: 2.4
+                },
+                700: {
+                    slidesPerView: 2.6
+                },
+                750: {
+                    slidesPerView: 2.8
+                },
+                800: {
+                    slidesPerView: 3
+                },
+                860: {
+                    slidesPerView: 3.2
+                },
+                880: {
+                    slidesPerView: 3.4
+                },
+                950: {
+                    slidesPerView: 3.7
+                },
+                1000: {
+                    slidesPerView: 3.9
+                },
+                1080: {
+                    slidesPerView: 4.2,
+                    showSwitchArrows: true
+                }
+
+            }}
         >
 
             {carData.map(car => <SwiperSlide>
