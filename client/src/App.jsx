@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full max-w-[1080]'>
       <NavBar/>
       <Main/>
     </div>
