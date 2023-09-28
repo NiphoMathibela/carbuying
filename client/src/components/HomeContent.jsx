@@ -2,13 +2,14 @@ import React from 'react'
 import Income from './Income'
 import PopularCarsCard from './PopularCarsCard'
 import CarCard from './CarCard'
+import ForSaleCard from './ForSaleCard'
 import Slider from './Slider'
 import { carData } from '../assets/carData'
 
 const HomeContent = () => {
 
   const forSale = carData.map(car => 
-  <CarCard
+  <ForSaleCard
     car={car.car}
     brand={car.brand}
     img={car.img}
@@ -16,6 +17,8 @@ const HomeContent = () => {
     consumption={car.consumption}
     seats={car.seats}
     price={car.price}
+    year={car.year}
+    model={car.model}
   />)
 
   return (
