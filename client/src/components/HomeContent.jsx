@@ -22,12 +22,13 @@ const HomeContent = () => {
   />)
 
   return (
-    <div>
-        <Income/>
+    <div className='w-full'>
         <div className=' font-semibold text-sm text-[#90A3BF] my-4 text-left'>Popular Cars</div>
         <Slider/>
         <div className=' font-semibold text-sm text-[#90A3BF] my-4 text-left'>Cars For Sale</div>
-        {forSale}
+        <div className=' w-full mx-auto'>
+          {forSale}
+        </div>
         
     </div>
   )

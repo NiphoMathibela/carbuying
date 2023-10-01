@@ -3,11 +3,12 @@ import { IoHeartOutline } from 'react-icons/io5'
 import { BsFuelPump } from 'react-icons/bs'
 import { TbManualGearbox } from 'react-icons/tb'
 import { BsPeopleFill } from 'react-icons/bs'
+import { SlSpeedometer } from 'react-icons/sl'
 import MainButton from './MainButton'
 
 const ForSaleCard = (props) => {
   return (
-    <div className="flex flex-row w-1/2 h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3 mx-auto'">
+    <div className="flex flex-row w-1/2 h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3 mx-auto">
       <div className="w-72 my-auto">
         <img src={props.img}/>
       </div>
@@ -34,7 +35,7 @@ const ForSaleCard = (props) => {
             <TbManualGearbox size={16} color="#90A3BF" /> {props.gearType}
           </p>
           <p className="flex flex-row items-center text-xs text-[#90A3BF]">
-            <BsPeopleFill size={16} color="#90A3BF" /> {props.seats}
+            <SlSpeedometer size={18} color="#90A3BF" /> {props.seats}
           </p>
         </div>
       </div>
