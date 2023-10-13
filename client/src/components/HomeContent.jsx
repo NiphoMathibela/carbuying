@@ -5,6 +5,7 @@ import CarCard from './CarCard'
 import ForSaleCard from './ForSaleCard'
 import Slider from './Slider'
 import { carData } from '../assets/carData'
+import Arccordian from './Arccordian'
 
 const HomeContent = () => {
 
@@ -28,6 +29,9 @@ const HomeContent = () => {
         <div className=' font-semibold text-sm text-[#90A3BF] my-4 text-left'>Cars For Sale</div>
         <div className=' w-full mx-auto'>
           {forSale}
+        </div>
+        <div>
+          <Arccordian/>
         </div>
         
     </div>

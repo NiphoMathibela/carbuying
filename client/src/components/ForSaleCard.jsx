@@ -25,7 +25,7 @@ const ForSaleCard = (props) => {
             {props.model}
         </div>
         <div className="text-left">
-          <p>R {props.price}</p>
+          <p className=" text-lg text-[#3563E9] font-bold">R {props.price}</p>
         </div>
         <div className="flex flex-row items-center justify-between absolute bottom-6 w-2/3 mx-auto">
           <p className="flex flex-row items-center text-xs text-[#90A3BF]">
