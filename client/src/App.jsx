@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import Main from './components/Main'
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from './pages/Main'
 import './App.css'
 import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
@@ -11,7 +13,14 @@ function App() {
   return (
     <div className='w-full h-full max-w-[1080]'>
       <NavBar/>
-      <Main/>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main/>}>
+          <Route index element={<Main />} />
+          {/* <Route path="*" element={<NoPage />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
   )
 }

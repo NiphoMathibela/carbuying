@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from './NavBar'
-import SearchBar from './SearchBar'
-import Hero from './Hero'
-import HomeContent from './HomeContent'
+import NavBar from '../components/NavBar'
+import SearchBar from '../components/SearchBar'
+import Hero from '../components/Hero'
+import HomeContent from '../components/HomeContent'
 
 const Main = () => {
   return (
