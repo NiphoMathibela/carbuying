@@ -8,7 +8,7 @@ import MainButton from './MainButton'
 
 const ForSaleCard = (props) => {
   return (
-    <div className="flex flex-row w-1/2 h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3 mx-auto">
+    <div className="flex flex-row w-1/2 h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3">
       <div className="w-72 my-auto">
         <img src={props.img}/>
       </div>
@@ -27,7 +27,9 @@ const ForSaleCard = (props) => {
         <div className="text-left">
           <p className=" text-lg text-[#3563E9] font-bold">R {props.price}</p>
         </div>
-        <div className="flex flex-row items-center justify-between absolute bottom-6 w-2/3 mx-auto">
+
+        {/* Icons row */}
+        <div className="flex flex-row items-center justify-between bottom-6 w-full mx-auto">
           <p className="flex flex-row items-center text-xs text-[#90A3BF]">
             <BsFuelPump size={16} color="#90A3BF" /> {props.consumption}
           </p>

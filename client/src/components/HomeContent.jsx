@@ -6,6 +6,7 @@ import ForSaleCard from './ForSaleCard'
 import Slider from './Slider'
 import { carData } from '../assets/carData'
 import Arccordian from './Arccordian'
+import FilterBar from './FilterBar'
 
 const HomeContent = () => {
 
@@ -27,13 +28,16 @@ const HomeContent = () => {
         <div className=' font-semibold text-sm text-[#90A3BF] my-4 text-left'>Popular Cars</div>
         <Slider/>
         <div className=' font-semibold text-sm text-[#90A3BF] my-4 text-left'>Cars For Sale</div>
-        <div className=' w-full mx-auto'>
+
+        {/* Filter bar and cars for sale */}
+        <div className='flex flex-row w-full'>
+        <div className=' w-3/12 mr-4 pt-3 rounded-md drop-shadow-md'>
+          <FilterBar/>
+        </div>
+        <div className=' w-5/6'>
           {forSale}
         </div>
-        <div>
-          <Arccordian/>
         </div>
-        
     </div>
   )
 }
