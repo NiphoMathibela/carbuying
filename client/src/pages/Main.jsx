@@ -6,7 +6,7 @@ import HomeContent from '../components/HomeContent'
 
 const Main = () => {
   return (
-    <div className='w-full top-16 absolute p-6'>
+    <div className='w-10/12 mx-auto top-44 p-6'>
         <Hero/>
         <HomeContent/>
     </div>

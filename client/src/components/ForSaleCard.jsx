@@ -8,7 +8,7 @@ import MainButton from './MainButton'
 
 const ForSaleCard = (props) => {
   return (
-    <div className="flex flex-row w-4/5 h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3">
+    <div className="flex flex-row w-full h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3">
       <div className="w-72 my-auto">
         <img src={props.img}/>
       </div>

@@ -19,7 +19,7 @@ const PageDisplay = () => {
         />
       ));
   return (
-    <div className="flex column justify-center w-full">
+    <div className="flex column justify-center w-full mx-auto">
       <div className=" w-1/3  mt-3">
         <FilterBar />
       </div>

@@ -27,7 +27,7 @@ function App() {
   );
 
   return (
-    <div className="w-full h-full max-w-[1080]">
+    <div className=" w-full max-w-[1080]">
       <NavBar />
       <RouterProvider router={router}/>
     </div>

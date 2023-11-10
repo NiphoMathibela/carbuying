@@ -46,11 +46,6 @@ const FilterBar = () => {
         {/* gear type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="anyGear" name="anyGear"></input>
-          <label htmlFor="anyGear" className="ml-2">Any</label>
-        </div>
-
-        <div className="mb-2">
           <input type="checkbox" id="auto" name="auto"></input>
           <label htmlFor="auto" className="ml-2">Automatic</label>
         </div>
@@ -61,7 +56,7 @@ const FilterBar = () => {
         </div>
 
         <p className=" font-semibold my-6">Fuel</p>
-        {/* gear type checkboxes */}
+        {/* fuel type checkboxes */}
 
         <div className="mb-2">
           <input type="checkbox" id="anyFuel" name="anyFuel"></input>
@@ -86,6 +81,32 @@ const FilterBar = () => {
         <div className="mb-2">
           <input type="checkbox" id="hybrid" name="hybrid"></input>
           <label htmlFor="hybrid" className="ml-2">Hybrid</label>
+        </div>
+
+        <p className=" font-semibold my-6">Vehicle type</p>
+        {/* vehicle type checkboxes */}
+
+        <div className="mb-2">
+          <input type="checkbox" id="commercial" name="commercial"></input>
+          <label htmlFor="commercial" className="ml-2">Commercial</label>
+        </div>
+
+        <div className="mb-2">
+          <input type="checkbox" id="passenger" name="passenger"></input>
+          <label htmlFor="diesel" className="ml-2">Passenger</label>
+        </div>
+
+        <p className=" font-semibold my-6">Seller type</p>
+        {/* seller type checkboxes */}
+
+        <div className="mb-2">
+          <input type="checkbox" id="dealer" name="dealer"></input>
+          <label htmlFor="commercial" className="ml-2">Dealer</label>
+        </div>
+
+        <div className="mb-2">
+          <input type="checkbox" id="private" name="private"></input>
+          <label htmlFor="private" className="ml-2">Private</label>
         </div>
         
       </div>
