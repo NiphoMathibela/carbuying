@@ -10,19 +10,6 @@ import FilterBar from "./FilterBar";
 import PageDisplay from "./PageDisplay";
 
 const HomeContent = () => {
-  // const forSale = carData.map((car) => (
-  //   <ForSaleCard
-  //     car={car.car}
-  //     brand={car.brand}
-  //     img={car.img}
-  //     gearType={car.gearType}
-  //     consumption={car.consumption}
-  //     seats={car.seats}
-  //     price={car.price}
-  //     year={car.year}
-  //     model={car.model}
-  //   />
-  // ));
 
   return (
     <div className="w-full">

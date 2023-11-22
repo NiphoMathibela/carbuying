@@ -5,8 +5,12 @@ import { TbManualGearbox } from 'react-icons/tb'
 import { BsPeopleFill } from 'react-icons/bs'
 import { SlSpeedometer } from 'react-icons/sl'
 import MainButton from './MainButton'
+import { useNavigate } from "react-router-dom";
 
 const ForSaleCard = (props) => {
+
+  let navigate = useNavigate();
+
   return (
     <div className="flex flex-row w-full h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3">
       <div className="w-72 my-auto">
