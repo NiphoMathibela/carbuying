@@ -4,7 +4,6 @@ import { BsFuelPump } from 'react-icons/bs'
 import { TbManualGearbox } from 'react-icons/tb'
 import { BsPeopleFill } from 'react-icons/bs'
 import { SlSpeedometer } from 'react-icons/sl'
-import MainButton from './MainButton'
 import { useNavigate } from "react-router-dom";
 
 const ForSaleCard = (props) => {
@@ -12,12 +11,15 @@ const ForSaleCard = (props) => {
   let navigate = useNavigate();
 
   return (
-    <div className="flex flex-row w-full h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3">
-      <div className="w-72 my-auto">
+    <div className="flex flex-row w-full h-52 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 my-3 cursor-pointer">
+      {/* Displaying image */}
+      <div className="w-72 my-auto" onClick={() => navigate(`/car/${props.carId}`)}>
         <img src={props.img}/>
       </div>
+
+      {/* Displaying car details */}
       <div className=" h-full w-full">
-        <div className=" flex flex-row justify-between">
+        <div className=" flex flex-row justify-between" onClick={() => navigate(`/car/${props.carId}`)}>
           <p className="text-[#1A202C] font-semibold text-base">
             {props.year} {props.brand} {props.car} 
           </p>

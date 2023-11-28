@@ -4,11 +4,17 @@ import ForSaleCard from "./ForSaleCard";
 import { carData } from "../assets/carData";
 import { useNavigate } from "react-router-dom";
 
+
 const PageDisplay = () => {
+
+  //State to check if a card is cliked
   let navigate = useNavigate();
 
   const carDetail = (id) => {
-    navigate(`/car/${id}`)
+    navigate("/carSearch")
+    
+
+    console.log("Clicked:", id)
   }
 
   const forSale = carData.map((car) => (
@@ -23,7 +29,7 @@ const PageDisplay = () => {
       price={car.price}
       year={car.year}
       model={car.model}
-      onClick={carDetail(car.id)}
+      carId = {car.id}
     />
   ));
   return (
