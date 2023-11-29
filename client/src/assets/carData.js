@@ -13,7 +13,8 @@ export const carData = [
     price: "450,000",
     brand: "Volkswagen",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     img: "https://github.com/NiphoMathibela/carbuying/blob/main/client/src/assets/Polo%20Trendline.png?raw=true",
@@ -32,7 +33,8 @@ export const carData = [
     price: "450,000",
     brand: "Volkswagen",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 
@@ -52,7 +54,8 @@ export const carData = [
     price: "550,000",
     brand: "Volkswagen",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 
@@ -72,7 +75,8 @@ export const carData = [
     price: "220,000",
     brand: "Suzuki",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     img: "https://github.com/NiphoMathibela/carbuying/blob/swiperTest/client/src/assets/Suzuki%20Swift.png?raw=true",
@@ -88,7 +92,8 @@ export const carData = [
     price: "550,000",
     brand: "Volkswagen",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 
@@ -105,7 +110,8 @@ export const carData = [
     price: "220,000",
     brand: "Suzuki",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 
@@ -122,7 +128,8 @@ export const carData = [
     price: "550,000",
     brand: "Volkswagen",
     colour: "Red",
-    bodyTupe: "Hatchback",
+    bodyType: "Hatchback",
+    vehicleType: "Used",
     comments:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     img: "https://github.com/NiphoMathibela/carbuying/blob/swiperTest/client/src/assets/Golf%20GTI.png?raw=true",

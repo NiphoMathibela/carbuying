@@ -15,6 +15,7 @@ import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
 import Hero from "./components/Hero";
 import CarDetail from "./pages/CarDetail";
+import SellCar from "./pages/SellCar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
       <Route index element={<Main/>}/>
       <Route path="/carSearch" element={<Search/>}/>
       <Route path="/car/:id" element={<CarDetail/>}/>
+      <Route path="/sellCar" element={<SellCar/>}/>
     </Route>)
   );
 

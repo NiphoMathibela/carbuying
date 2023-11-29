@@ -13,7 +13,7 @@ const CarDetail = () => {
   const { img, car, year } = carInfo;
 
   return (
-    <div className="w-9/12 mx-auto mt-28 ">
+    <div className="w-9/12 mx-auto mt-8 ">
       <div className=" flex flex-row justify-between mb-4">
         <h2 className=" text-3xl font-bold text-left">
           {carInfo.year} {carInfo.brand} {carInfo.car} {carInfo.model}
@@ -29,7 +29,7 @@ const CarDetail = () => {
 
       {/* Car details */}
       <div className=" my-4 bg-white p-3">
-        <p className="text-lg font-bold text-left">Vehicle Type</p>
+        <p className="text-lg font-bold text-left">{carInfo.vehicleType}</p>
         <div className="flex flex-row items-center justify-between bottom-6 w-3/12 mt-4">
           <p className="flex flex-row items-center text-base text-[#90A3BF]">
             <BsFuelPump size={24} color="#90A3BF" /> {carInfo.fuel}
@@ -48,8 +48,8 @@ const CarDetail = () => {
 
         {/* Vehicle details table*/}
         <p className="text-left text-xl font-bold my-4">Vehicle details</p>
-        <table className=" w-6/12">
-          <tr className="bg-[#F6F7F9] border border-[#F6F7F9] border-rounded">
+        <table className=" w-6/12 border-collapse border rounded-md p-2">
+          <tr className="bg-[#F6F7F9] rounded-r-md">
             <td className="font-semibold text-left">Last Updated</td>
             <td>28 November 2023</td>
           </tr>
