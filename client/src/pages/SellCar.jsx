@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MainButton from '../components/MainButton'
 
 const SellCar = () => {
+
+    const [sellForm, setSellForm] = useState({
+        make: "",
+        model: "",
+        year: "",
+        price: "",
+        location: ""
+    });
+
+    //Submitting sell car form
+    const submitSellForm = (e) => {
+        e.preventDefault();
+        console.log(sellForm);
+      };
+
+    //Handlin from data change
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setSellForm((prevSellForm) => ({
+          ...prevSellForm,
+          [name]: value
+        }));
+      };
+
   return (
     <div className='px-4'>
         <div className=' w-full h-72 rounded-md mx-auto my-4'>
@@ -15,33 +39,33 @@ const SellCar = () => {
 
             <div className='my-2'>
                 <p className='text-left font-semibold text-lg'>Make</p>
-                <input type="text" id='makeAndModel' name='makeAndModel' className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter make'/>
+                <input type="text" value={sellForm.make} id='makeAndModel' name='make' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter make'/>
             </div>
 
             <div className='my-2'>
                 <p className='text-left font-semibold text-lg'>Model</p>
-                <input type="text" id='model' name='model' className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter model'/>
+                <input type="text" value={sellForm.model} id='model' name='model' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter model'/>
             </div>
 
             <div className='my-2'>
                 <p className='text-left font-semibold text-lg'>Year</p>
-                <input type="year" id='year' name='year' className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 2018'/>
+                <input type="number" value={sellForm.year} id='year' name='year' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 2018'/>
             </div>
 
             <div className='my-2'>
                 <p className='text-left font-semibold text-lg'>Milieage</p>
-                <input type="text" id='mileage' name='mileage' className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 15000'/>
+                <input type="number" value={sellForm.mileage} id='mileage' name='mileage' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 15000'/>
             </div>
 
             <div className='my-2'>
                 <p className='text-left font-semibold text-lg'>Location</p>
-                <input type="location" id='makeAndModel' name='location' className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter location'/>
+                <input type="text" value={sellForm.location} id='makeAndModel' name='location' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter location'/>
             </div>
 
             {/* Form buttons */}
             <div>
                 <MainButton btnText="Reset"/>
-                <MainButton btnText="Sell"/>
+                <MainButton btnText="Sell" btnFunction={submitSellForm}/>
             </div>
         </div>
     </div>
