@@ -97,22 +97,50 @@ const SellCar = () => {
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Body type</p>
-                    <input type="text" value={sellForm.bodyType} id='bodyType' name='bodyType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter body type' />
+                    <select value={sellForm.bodyType} id='bodyType' name='bodyType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter body type' >
+                        <option value="">Select body type</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Bakkie">Bakkie</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Van">Van</option>
+                    </select>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Transmission</p>
-                    <input type="number" value={sellForm.gearType} id='gearType' name='gearType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter transmission type' />
+                    <select type="number" value={sellForm.gearType} id='gearType' name='gearType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter transmission type'>
+                        <option value="">Select transmission type</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                    </select>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Fuel type</p>
-                    <input type="number" value={sellForm.fuelType} id='fuelType' name='fuelType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter fuel type' />
+                    <select type="number" value={sellForm.fuelType} id='fuelType' name='fuelType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter fuel type'>
+                        <option value="">Select fuel type</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Electric">Electric</option>
+                    </select>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Engine type</p>
-                    <input type="text" value={sellForm.engine} id='engine' name='engine' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder' />
+                    <select type="text" value={sellForm.engine} id='engine' name='engine' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder'>
+                        <option value="">Select engine type</option>
+                        <option value="2">2 cylinder</option>
+                        <option value="3">3 cylinder</option>
+                        <option value="4">4 cylinder</option>
+                        <option value="5">5 cylinder</option>
+                        <option value="6">6 cylinder</option>
+                        <option value="8">8 cylinder</option>
+                        <option value="12">12 cylinder</option>
+                        <option value="16">16 cylinder</option>
+                    </select>
                 </div>
 
                 {/* New ones */}
@@ -138,17 +166,30 @@ const SellCar = () => {
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Drive</p>
-                    <input type="text" value={sellForm.drive} id='drive' name='drive' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter fuel type' />
+                    <select type="text" value={sellForm.drive} id='drive' name='drive' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter fuel type'>
+                        <option value="">Select fuel type</option>
+                        <option value="FWD">Front wheel drive</option>
+                        <option value="RWD">Rear wheel drive</option>
+                        <option value="AWD">All wheel drive</option>
+                        </select>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Seller type</p>
-                    <input type="text" value={sellForm.sellerType} id='sellerType' name='sellerType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder' />
+                    <select type="text" value={sellForm.sellerType} id='sellerType' name='sellerType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder'>
+                        <option value="">Select seller type</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Company">Company</option>
+                        </select>
                 </div>
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Vehicle type</p>
-                    <input type="text" value={sellForm.vehicleType} id='vehicleType' name='vehicleType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder' />
+                    <select type="text" value={sellForm.vehicleType} id='vehicleType' name='vehicleType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder'>
+                        <option value="">Select vehicle type</option>
+                        <option value="Car">Private</option>
+                        <option value="Truck">Commercial</option>
+                        </select>
                 </div>
 
                 <div className='my-2'>
