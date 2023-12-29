@@ -5,7 +5,7 @@ import { appContext } from "../context/AppContext";
 
 const FilterBar = () => {
 
-  const {filterTags, setFilterTags} = useContext(appContext);
+  const {filterTags, setFilterTags, FilterCars} = useContext(appContext);
 
   
     //Handlin from data change
@@ -18,16 +18,21 @@ const FilterBar = () => {
       }));
   };
 
+
   const filterHandler = (event) => {
     if (event.target.checked) {
       setFilterTags([...filterTags, event.target.value])
       console.log(filterTags)
-    } else {
+
+    } 
+    else {
       setFilterTags(
         filterTags.filter((filterTag) => filterTag !== event.target.value)
       )
     }
   }
+
+
 
   return (
     <>
@@ -137,7 +142,7 @@ const FilterBar = () => {
           <label htmlFor="private" className="ml-2">Private</label>
         </div>
 
-        <div className="mx-auto w-fit mt-10"><MainButton btnText="Apply filters"/></div>
+        <div className="mx-auto w-fit mt-10"><MainButton btnText="Apply filters" btnFunction={FilterCars}/></div>
         
       </div>
     </>
