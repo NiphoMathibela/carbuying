@@ -194,7 +194,7 @@ const SellCar = () => {
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Price</p>
-                    <input type="number" value={sellForm.price} id='price' name='price' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder' />
+                    <input type="number" value={sellForm.price} id='price' name='price' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 100 000' />
                 </div>
 
                 {/* Form buttons */}

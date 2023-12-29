@@ -16,6 +16,7 @@ import SearchBar from "./components/SearchBar";
 import Hero from "./components/Hero";
 import CarDetail from "./pages/CarDetail";
 import SellCar from "./pages/SellCar";
+import AppContextProvider from "./context/AppContext";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,18 +24,21 @@ function App() {
   //Defing routes
   const router = createBrowserRouter(
     createRoutesFromElements(<Route path="/" element={<Root />}>
-      <Route index element={<Main/>}/>
-      <Route path="/carSearch" element={<Search/>}/>
-      <Route path="/car/:id" element={<CarDetail/>}/>
-      <Route path="/sellCar" element={<SellCar/>}/>
+      <Route index element={<Main />} />
+      <Route path="/carSearch" element={<Search />} />
+      <Route path="/car/:id" element={<CarDetail />} />
+      <Route path="/sellCar" element={<SellCar />} />
     </Route>)
   );
 
   return (
-    <div className=" w-full max-w-[1080]">
-      <NavBar />
-      <RouterProvider router={router}/>
-    </div>
+    <AppContextProvider>
+      <div className=" w-full max-w-[1080]">
+        <NavBar />
+        <RouterProvider router={router} />
+      </div>
+    </AppContextProvider>
+
   );
 }
 

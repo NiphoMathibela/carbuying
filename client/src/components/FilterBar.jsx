@@ -1,4 +1,5 @@
 import React from "react";
+import MainButton from "./MainButton";
 
 const FilterBar = () => {
   return (
@@ -108,6 +109,8 @@ const FilterBar = () => {
           <input type="checkbox" id="private" name="private"></input>
           <label htmlFor="private" className="ml-2">Private</label>
         </div>
+
+        <div className="mx-auto w-fit mt-10"><MainButton btnText="Apply filters"/></div>
         
       </div>
     </>
