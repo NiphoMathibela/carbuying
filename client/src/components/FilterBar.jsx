@@ -1,7 +1,34 @@
 import React from "react";
 import MainButton from "./MainButton";
+import { useContext } from "react";
+import { appContext } from "../context/AppContext";
 
 const FilterBar = () => {
+
+  const {filterTags, setFilterTags} = useContext(appContext);
+
+  
+    //Handlin from data change
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+
+      setSellForm((prevSellForm) => ({
+          ...prevSellForm,
+          [name]: value
+      }));
+  };
+
+  const filterHandler = (event) => {
+    if (event.target.checked) {
+      setFilterTags([...filterTags, event.target.value])
+      console.log(filterTags)
+    } else {
+      setFilterTags(
+        filterTags.filter((filterTag) => filterTag !== event.target.value)
+      )
+    }
+  }
+
   return (
     <>
       <div className="w-full h-full rounded-md drop-shadow-md bg-[#F6F7F9] text-left p-4 text-[#596780]">
@@ -9,37 +36,37 @@ const FilterBar = () => {
         {/* body type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="any" name="any"></input>
+          <input type="checkbox" id="any" name="any" value={"Any"} onChange={filterHandler}></input>
           <label htmlFor="any" className="ml-2">Any</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="cabriolet" name="cabriolet"></input>
+          <input type="checkbox" id="cabriolet" name="cabriolet" value={"Cabriolet"} onChange={filterHandler}></input>
           <label htmlFor="cabriolet" className="ml-2">Cabriolet</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="coupe" name="coupe"></input>
+          <input type="checkbox" id="coupe" name="coupe" value={"Coupe"} onChange={filterHandler}></input>
           <label htmlFor="coupe" className="ml-2">Coupe</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="sedan" name="sedan"></input>
+          <input type="checkbox" id="sedan" name="sedan" value={"Sedan"} onChange={filterHandler}></input>
           <label htmlFor="sedan" className="ml-2">Sedan</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="suv" name="suv"></input>
+          <input type="checkbox" id="suv" name="suv" value={"SUV"} onChange={filterHandler}></input>
           <label htmlFor="suv" className="ml-2">SUV</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="hatch" name="hatch"></input>
+          <input type="checkbox" id="hatch" name="hatch" value={"Hatchback"} onChange={filterHandler}></input>
           <label htmlFor="hatch" className="ml-2">Hatchback</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="bakkie" name="bakkie"></input>
+          <input type="checkbox" id="bakkie" name="bakkie" value={"Bakkie"} onChange={filterHandler}></input>
           <label htmlFor="bakkie" className="ml-2">Bakkie</label>
         </div>
 
@@ -47,12 +74,12 @@ const FilterBar = () => {
         {/* gear type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="auto" name="auto"></input>
+          <input type="checkbox" id="auto" name="auto" value={"Auto"} onChange={filterHandler}></input>
           <label htmlFor="auto" className="ml-2">Automatic</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="manual" name="manula"></input>
+          <input type="checkbox" id="manual" name="manual" value={"Manual"} onChange={filterHandler}></input>
           <label htmlFor="manual" className="ml-2">Manual</label>
         </div>
 
@@ -60,27 +87,27 @@ const FilterBar = () => {
         {/* fuel type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="anyFuel" name="anyFuel"></input>
+          <input type="checkbox" id="anyFuel" name="anyFuel" value={"AnyFuel"} onChange={filterHandler}></input>
           <label htmlFor="anyFuel" className="ml-2">Any</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="diesel" name="diesel"></input>
+          <input type="checkbox" id="diesel" name="diesel" value={"Diesel"} onChange={filterHandler}></input>
           <label htmlFor="diesel" className="ml-2">Diesel</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="petrol" name="petrol"></input>
+          <input type="checkbox" id="petrol" name="petrol" value={"Petrol"} onChange={filterHandler}></input>
           <label htmlFor="petrol" className="ml-2">Petrol</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="electric" name="electric"></input>
+          <input type="checkbox" id="electric" name="electric" value={"Electric"} onChange={filterHandler}></input>
           <label htmlFor="electric" className="ml-2">Electric</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="hybrid" name="hybrid"></input>
+          <input type="checkbox" id="hybrid" name="hybrid" value={"Hybrid"} onChange={filterHandler}></input>
           <label htmlFor="hybrid" className="ml-2">Hybrid</label>
         </div>
 
@@ -88,12 +115,12 @@ const FilterBar = () => {
         {/* vehicle type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="commercial" name="commercial"></input>
+          <input type="checkbox" id="commercial" name="commercial" value={"Commercial"} onChange={filterHandler}></input>
           <label htmlFor="commercial" className="ml-2">Commercial</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="passenger" name="passenger"></input>
+          <input type="checkbox" id="passenger" name="passenger" value={"Passenger"} onChange={filterHandler}></input>
           <label htmlFor="diesel" className="ml-2">Passenger</label>
         </div>
 
@@ -101,12 +128,12 @@ const FilterBar = () => {
         {/* seller type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="dealer" name="dealer"></input>
+          <input type="checkbox" id="dealer" name="dealer" value={"Dealer"} onChange={filterHandler}></input>
           <label htmlFor="commercial" className="ml-2">Dealer</label>
         </div>
 
         <div className="mb-2">
-          <input type="checkbox" id="private" name="private"></input>
+          <input type="checkbox" id="private" name="private" value={"Private"} onChange={filterHandler}></input>
           <label htmlFor="private" className="ml-2">Private</label>
         </div>
 
