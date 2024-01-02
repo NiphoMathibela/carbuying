@@ -8,7 +8,7 @@ import { appContext } from "../context/AppContext";
 
 const PageDisplay = () => {
 
-  const {filteredCars, filterTags, setFilteredCars} = useContext(appContext);
+  const {filteredCars, searchedCars} = useContext(appContext);
 
   //State to check if a card is cliked
   let navigate = useNavigate();
@@ -36,7 +36,7 @@ const PageDisplay = () => {
     />
   ));
 
-  const forSale = carData.map((car) => (
+  const forSale = searchedCars.map((car) => (
     <ForSaleCard
       key={car.id}
       car={car.car}
@@ -56,7 +56,10 @@ const PageDisplay = () => {
       <div className=" w-1/3  mt-3">
         <FilterBar />
       </div>
-      <div className="w-full ml-5">{filteredCars.length > 0 ? filteredSales : forSale}</div>
+      {/* <div className="w-full ml-5">{filteredCars.length > 0 ? filteredSales : forSale}</div> */}
+      {/* Test code */}
+      <div className="w-full ml-5">{forSale}</div>
+
     </div>
   );
 };

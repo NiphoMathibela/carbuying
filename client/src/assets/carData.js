@@ -1,7 +1,7 @@
 export const carData = [
   {
     id: "1",
-    car: "Polo",
+    car: "polo",
     gearType: "Manual",
     consumption: "5.2",
     year: "2015",
@@ -11,7 +11,7 @@ export const carData = [
     fuel: "Petrol",
     seats: "5",
     price: "450,000",
-    brand: "Volkswagen",
+    brand: "volkswagen",
     colour: "Red",
     bodyType: "Hatchback",
     vehicleType: "Used",

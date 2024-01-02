@@ -2,13 +2,14 @@ import React from "react";
 import MainButton from "./MainButton";
 import { useContext } from "react";
 import { appContext } from "../context/AppContext";
+import { carData } from "../assets/carData";
 
 const FilterBar = () => {
 
-  const {filterTags, setFilterTags, FilterCars} = useContext(appContext);
+  const {filterTags, setFilterTags, searchText} = useContext(appContext);
 
   
-    //Handlin from data change
+    //Handling from data change
     const handleChange = (e) => {
       const { name, value } = e.target;
 
@@ -41,7 +42,7 @@ const FilterBar = () => {
         {/* body type checkboxes */}
 
         <div className="mb-2">
-          <input type="checkbox" id="any" name="any" value={"Any"} onChange={filterHandler}></input>
+          <input type="checkbox" id="any" name="any" value={""} onChange={filterHandler}></input>
           <label htmlFor="any" className="ml-2">Any</label>
         </div>
 
@@ -142,7 +143,7 @@ const FilterBar = () => {
           <label htmlFor="private" className="ml-2">Private</label>
         </div>
 
-        <div className="mx-auto w-fit mt-10"><MainButton btnText="Apply filters" btnFunction={FilterCars}/></div>
+        {/* <div className="mx-auto w-fit mt-10"><MainButton btnText="Apply filters" btnFunction={FilteringCars(searchText, filterTags, carData)}/></div> */}
         
       </div>
     </>
