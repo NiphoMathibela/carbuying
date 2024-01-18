@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase/auth";
-import { initializeApp } from "firebase/app";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../firebase";
 
 import { carData } from "../assets/carData";
 
@@ -33,7 +32,12 @@ const AppContextProvider = (props) => {
 
   //Creating new users
   const Register = async () => {
-
+    try {
+      const user = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
+      console.log(user)
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   //Filtering func
@@ -71,7 +75,7 @@ const AppContextProvider = (props) => {
   const searchedCars = FilteringCars(searchText, filterTags, carData)
 
   return (
-    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails }}>
+    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register }}>
       {props.children}
     </appContext.Provider>
   )

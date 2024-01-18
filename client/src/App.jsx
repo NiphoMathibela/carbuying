@@ -17,6 +17,7 @@ import Hero from "./components/Hero";
 import CarDetail from "./pages/CarDetail";
 import SellCar from "./pages/SellCar";
 import AppContextProvider from "./context/AppContext";
+import Register from "./pages/Register";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,6 +29,7 @@ function App() {
       <Route path="/carSearch" element={<Search />} />
       <Route path="/car/:id" element={<CarDetail />} />
       <Route path="/sellCar" element={<SellCar />} />
+      <Route path="/registerUser" element={<Register/>} />
     </Route>)
   );
 
