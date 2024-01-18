@@ -1,12 +1,5 @@
 import React from "react";
-import Income from "./Income";
-import PopularCarsCard from "./PopularCarsCard";
-import CarCard from "./CarCard";
-import ForSaleCard from "./ForSaleCard";
 import Slider from "./Slider";
-import { carData } from "../assets/carData";
-import Arccordian from "./Arccordian";
-import FilterBar from "./FilterBar";
 import PageDisplay from "./PageDisplay";
 
 const HomeContent = () => {
