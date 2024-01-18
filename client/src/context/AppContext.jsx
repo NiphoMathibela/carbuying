@@ -1,28 +1,40 @@
 import React, { createContext, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../firebase/auth";
+import { initializeApp } from "firebase/app";
+
 import { carData } from "../assets/carData";
 
 export const appContext = createContext();
 
 const AppContextProvider = (props) => {
 
+  //Searching function states
   const [filterTags, setFilterTags] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-//Creating new users
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    // ...
+  //Register formm states
+  const [regDetails, setRegDetails] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    number: "",
+    password: "",
+    typeOfUser: "",
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+
+  //Register form states
+  const [loginDetails, setLoginDetails] = useState({
+    email: "",
+    password: "",
+    typeOfUser: "",
+  })
+
+  //Creating new users
+  const Register = async () => {
+
+  }
 
   //Filtering func
   const FilterCars = () => {
@@ -44,8 +56,6 @@ createUserWithEmailAndPassword(auth, email, password)
       filteredItems = filteredItems.filter(
         (product) => product.car.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
       );
-      // filteredItems = filteredItems.filter(car => car.model.toLowerCase().includes(searchText));
-      // filteredItems = filteredItems.filter(car => car.brand.toLowerCase().includes(searchText));
     }
 
     if (filterTags.length > 0) {
@@ -61,7 +71,7 @@ createUserWithEmailAndPassword(auth, email, password)
   const searchedCars = FilteringCars(searchText, filterTags, carData)
 
   return (
-    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars }}>
+    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails }}>
       {props.children}
     </appContext.Provider>
   )
