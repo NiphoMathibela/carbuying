@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
   
@@ -9,7 +10,7 @@ const NavBar = () => {
         </div>
         <div className='flex flex-row justify-between'>
             <a href='/sellCar' className=' mr-4 cursor-pointer text-base font-normal text-[#3563E9] underline'>Sell a car</a>
-            <button className=' w-28 h-8 bg-[#3563E9] rounded-md text-white'>Sign In / Up</button>
+            <a href='/loginUser' className=' w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign In / Up</a>
         </div>
     </div>
   )
