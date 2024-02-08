@@ -34,10 +34,10 @@ const Register = () => {
 
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Type of user</p>
-                    <select type="text" value={regDetails.typeOfUser} id='typeOfUser' name='typeOfUser' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder'>
+                    <select type="text" value={regDetails.userType} id='userType' name='userType' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='e.g 8 cylinder'>
                         <option value="">Select user type</option>
-                        <option value="Car">Private/Individual</option>
-                        <option value="Truck">Dealer</option>
+                        <option value="Individual">Private/Individual</option>
+                        <option value="Dealer">Dealer</option>
                     </select>
                 </div>
 

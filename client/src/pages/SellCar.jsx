@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import MainButton from '../components/MainButton'
-import axios from 'axios';
 
 const SellCar = () => {
 
@@ -26,12 +25,6 @@ const SellCar = () => {
         vehicleType: ""
     });
 
-    //Headers
-    const headers = {
-        'Access-Control-Allow-Origin': '*',
-        "Accept": "application/json",
-  "content-type":"application/json"
-    };
 
     //Submitting sell car form
     const submitSellForm = (e) => {
@@ -43,7 +36,7 @@ const SellCar = () => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "Accept": "application/json",
-                "content-type":"application/json"
+                "content-type": "application/json"
             }
         })
             .then((response) => response.json())
@@ -171,7 +164,7 @@ const SellCar = () => {
                         <option value="FWD">Front wheel drive</option>
                         <option value="RWD">Rear wheel drive</option>
                         <option value="AWD">All wheel drive</option>
-                        </select>
+                    </select>
                 </div>
 
                 <div className='my-2'>
@@ -180,7 +173,7 @@ const SellCar = () => {
                         <option value="">Select seller type</option>
                         <option value="Individual">Individual</option>
                         <option value="Company">Company</option>
-                        </select>
+                    </select>
                 </div>
 
                 <div className='my-2'>
@@ -189,7 +182,7 @@ const SellCar = () => {
                         <option value="">Select vehicle type</option>
                         <option value="Car">Private</option>
                         <option value="Truck">Commercial</option>
-                        </select>
+                    </select>
                 </div>
 
                 <div className='my-2'>
