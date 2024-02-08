@@ -21,6 +21,7 @@ const AppContextProvider = (props) => {
     number: "",
     password: "",
     typeOfUser: "",
+    userId: ""
   })
 
   //Register form states
@@ -34,10 +35,27 @@ const AppContextProvider = (props) => {
   const Register = async () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
+      //Adding to mongoDb 
+      setRegDetails((prevRegDetails) => ({...prevRegDetails, userId:user.uid}) );
       console.log(user)
     } catch (error) {
       console.log(error.message)
     }
+
+    
+
+    //Posting to mongoDB User collection
+    fetch("https://localhost:7069/user/User", {
+            method: "POST",
+            body: JSON.stringify(regDetails),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Accept": "application/json",
+                "content-type":"application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
   }
 
   //Filtering func
