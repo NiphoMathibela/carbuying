@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { appContext } from "../context/AppContext";
 import PopularCarsCard from "./PopularCarsCard";
 import ForSaleMobile from "./ForSaleMobile";
+import MobileMenu from "./MobileMenu";
 
 
 const PageDisplay = () => {
@@ -73,16 +74,20 @@ const PageDisplay = () => {
   ));
 
 
-  return (
-    <div className="flex column justify-center w-full mx-auto">
-      <div className=" w-1/3  mt-3 none hidden sm:block">
-        <FilterBar />
-      </div>
-      {/* <div className="w-full ml-5">{filteredCars.length > 0 ? filteredSales : forSale}</div> */}
-      {/* Test code */}
-      <div className="w-full hidden ml-6 sm:block">{forSale}</div>
-      <div className="w-full sm:hidden">{forSaleSm}</div>
 
+
+  return (
+    <div>
+      <div className="flex column justify-center w-full mx-auto ">
+        <div className=" w-1/3  mt-3 none hidden sm:block">
+          <FilterBar />
+        </div>
+
+        {/* Test code */}
+        <div className="w-full hidden ml-6 sm:block">{forSale}</div>
+        <div className="w-full sm:hidden">{forSaleSm}</div>
+
+      </div>
     </div>
   );
 };

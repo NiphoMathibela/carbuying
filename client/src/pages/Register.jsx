@@ -20,7 +20,7 @@ const Register = () => {
     };
 
     return (
-        <div className=' p-5'>
+        <div className=' p-5 mt-24'>
             <div className=' w-full shadow-lg mx-auto rounded p-3 mt-4 max-w-lg lg:p-5'>
                 <div className='my-2'>
                     <p className='text-left font-semibold text-lg'>Name</p>

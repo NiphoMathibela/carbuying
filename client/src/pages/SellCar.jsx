@@ -54,7 +54,7 @@ const SellCar = () => {
 
     return (
         <div className='px-4'>
-            <div className=' w-full h-72 rounded-md mx-auto my-4'>
+            <div className=' w-full h-72 rounded-md mx-auto my-4 mt-20'>
                 <img className='w-full object-cover object-center rounded-md max-h-72' src='https://images.unsplash.com/photo-1604447199408-9798f9f64f88?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
             </div>
 

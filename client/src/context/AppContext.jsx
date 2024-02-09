@@ -8,6 +8,9 @@ export const appContext = createContext();
 
 const AppContextProvider = (props) => {
 
+  //NavBar States
+  const [menuIsOpen, setIsMenuOpen] = useState(false);
+
   //Searching function states
   const [filterTags, setFilterTags] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
@@ -92,7 +95,7 @@ const AppContextProvider = (props) => {
   const searchedCars = FilteringCars(searchText, filterTags, carData)
 
   return (
-    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register }}>
+    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register, menuIsOpen, setIsMenuOpen }}>
       {props.children}
     </appContext.Provider>
   )
