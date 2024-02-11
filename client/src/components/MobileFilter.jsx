@@ -38,7 +38,7 @@ const MobileFilter = () => {
 
     return (
         <>
-            <div className="w-full h-[95%] rounded-md drop-shadow-md bg-[#F6F7F9] text-left text-[#596780] top-14 fixed z-30 overflow-y-scroll p-6">
+            <div className="w-full h-[95%] sm:hidden rounded-md drop-shadow-md bg-[#F6F7F9] text-left text-[#596780] top-14 fixed z-30 overflow-y-scroll p-6">
                 <div onClick={ToggleMobileFilter} className="right-0 mb-4 w-fit">
                     <IoCloseSharp size={28}/>
                 </div>
