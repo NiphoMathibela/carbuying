@@ -4,8 +4,13 @@ import { BsFuelPump } from 'react-icons/bs'
 import { TbManualGearbox } from 'react-icons/tb'
 import { BsPeopleFill } from 'react-icons/bs'
 import MainButton from './MainButton'
+import { useNavigate } from 'react-router-dom'
 
 const ForSaleMobile = (props) => {
+
+  //Navigation
+  let navigate = useNavigate();
+  
   return (
     <div className=' w-full h-96 mb-6 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 relative' onClick={() => navigate(`/car/${props.carId}`)}>
       <div className='flex flex-row items-center justify-between'>
