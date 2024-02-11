@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-
 import { carData } from "../assets/carData";
 
 export const appContext = createContext();
@@ -29,7 +28,6 @@ const AppContextProvider = (props) => {
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
-    typeOfUser: "",
   })
 
   //Creating new users
@@ -55,6 +53,17 @@ const AppContextProvider = (props) => {
       //Testing
       console.log(user)
       console.log(regDetails)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  //Login existing users
+  const LoginUser = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(auth, regDetails.email, regDetails.password);
+      console.log(regDetails)
+      navigate("/registerUser")
     } catch (error) {
       console.log(error.message)
     }
@@ -95,7 +104,7 @@ const AppContextProvider = (props) => {
   const searchedCars = FilteringCars(searchText, filterTags, carData)
 
   return (
-    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register, menuIsOpen, setIsMenuOpen }}>
+    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register, menuIsOpen, setIsMenuOpen, LoginUser }}>
       {props.children}
     </appContext.Provider>
   )
