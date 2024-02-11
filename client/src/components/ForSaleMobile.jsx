@@ -7,7 +7,7 @@ import MainButton from './MainButton'
 
 const ForSaleMobile = (props) => {
   return (
-    <div className=' w-full h-96 mb-6 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 relative'>
+    <div className=' w-full h-96 mb-6 bg-[#F6F7F9] rounded-md drop-shadow-md p-2 relative' onClick={() => navigate(`/car/${props.carId}`)}>
       <div className='flex flex-row items-center justify-between'>
         <p className='text-[#1A202C] font-semibold text-base'>{props.car}</p>
         <IoHeartOutline size={24} color='#90A3BF' />
