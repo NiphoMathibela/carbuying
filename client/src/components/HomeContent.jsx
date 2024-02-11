@@ -1,6 +1,10 @@
 import React from "react";
 import Slider from "./Slider";
 import PageDisplay from "./PageDisplay";
+import Search from "../pages/Search";
+import { IoFunnel } from "react-icons/io5";
+import SearchBar from "./SearchBar";
+import MobileSearch from "./MobileSearch";
 
 const HomeContent = () => {
 
@@ -13,12 +17,15 @@ const HomeContent = () => {
         </div>
         <Slider />
       </div>
+
+      <div>
+        <MobileSearch/>
+      </div>
       <div className=" font-semibold text-sm text-[#90A3BF] my-4 text-left">
         Cars For Sale
       </div>
 
       {/* Filter bar and cars for sale */}
-
       <PageDisplay />
     </div>
   );
