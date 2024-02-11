@@ -7,6 +7,7 @@ import { appContext } from "../context/AppContext";
 import PopularCarsCard from "./PopularCarsCard";
 import ForSaleMobile from "./ForSaleMobile";
 import MobileMenu from "./MobileMenu";
+import MobileFilter from "./MobileFilter";
 
 
 const PageDisplay = () => {
@@ -84,6 +85,7 @@ const PageDisplay = () => {
         </div>
 
         {/* Test code */}
+        
         <div className="w-full hidden ml-6 sm:block">{forSale}</div>
         <div className="w-full sm:hidden">{forSaleSm}</div>
 

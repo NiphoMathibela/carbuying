@@ -5,7 +5,7 @@ import { IoFunnel } from "react-icons/io5";
 
 const MobileSearch = (props) => {
 
-    const { setSearchText, searchText } = useContext(appContext);
+    const { setSearchText, searchText, ToggleMobileFilter} = useContext(appContext);
 
     const handleSearch = (e) => {
         setSearchText(e.target.value)
@@ -17,7 +17,7 @@ const MobileSearch = (props) => {
                 <IoSearchOutline className=' mr-1' size={26} color='#3563E9' />
                 <input placeholder='Search for your dream car' className=' w-full rounded-md focus:outline-none custom-placeholder' onChange={handleSearch}></input>
             </div>
-            <div className='ml-2'>
+            <div className='ml-2' onClick={ToggleMobileFilter}>
                 <IoFunnel size={28} color='#3563E9'/>
             </div>
         </div>

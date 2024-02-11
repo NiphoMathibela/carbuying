@@ -4,7 +4,7 @@ import { appContext } from '../context/AppContext';
 
 const MobileMenu = () => {
 
-    const {menuIsOpen, setIsMenuOpen} = useContext(appContext);
+    const { menuIsOpen, setIsMenuOpen } = useContext(appContext);
 
     let navigate = useNavigate();
 

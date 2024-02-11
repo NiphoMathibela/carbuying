@@ -7,6 +7,9 @@ export const appContext = createContext();
 
 const AppContextProvider = (props) => {
 
+  //Mobile filter bar states
+  const [filterOpen, setFilterOpen] = useState(false);
+
   //NavBar States
   const [menuIsOpen, setIsMenuOpen] = useState(false);
 
@@ -101,10 +104,28 @@ const AppContextProvider = (props) => {
 
   }
 
+  //ToggleMobileFilter
+  const ToggleMobileFilter = () => {
+    setFilterOpen(prev => !prev);
+  }
+
   const searchedCars = FilteringCars(searchText, filterTags, carData)
 
   return (
-    <appContext.Provider value={{ filterTags, setFilterTags, filteredCars, setFilteredCars, FilterCars, searchText, setSearchText, searchedCars, regDetails, setRegDetails, loginDetails, setLoginDetails, Register, menuIsOpen, setIsMenuOpen, LoginUser }}>
+    <appContext.Provider value={{
+      filterTags, setFilterTags, filteredCars,
+      setFilteredCars, FilterCars, searchText,
+      setSearchText, searchedCars, regDetails,
+      setRegDetails, loginDetails,
+      setLoginDetails,
+      Register,
+      menuIsOpen,
+      setIsMenuOpen,
+      LoginUser,
+      filterOpen,
+      setFilterOpen,
+      ToggleMobileFilter
+    }}>
       {props.children}
     </appContext.Provider>
   )
