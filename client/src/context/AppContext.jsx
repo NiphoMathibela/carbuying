@@ -27,18 +27,28 @@ const AppContextProvider = (props) => {
     userType: "",
   })
 
-  //Register form states
+  //Login form states
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   })
+
+  //Logged in details
+  const [loggedInDetails, setLoggedInDetails] = useState({
+    email: "",
+    name: "",
+  })
+
+  //Logged in status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //Creating new users
   const Register = async () => {
 
     try {
       const user = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
-      //Adding to mongoDb 
+      //Testing display name
+
 
       //Posting to mongoDB User collection
       fetch("https://localhost:7069/user/User", {
@@ -64,11 +74,21 @@ const AppContextProvider = (props) => {
   //Login existing users
   const LoginUser = async () => {
     try {
-      const user = await signInWithEmailAndPassword(auth, regDetails.email, regDetails.password);
+      const user = await signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password);
       console.log(regDetails)
-      navigate("/registerUser")
+      setLoggedInDetails({name: loginDetails.email, email: loginDetails.email})
     } catch (error) {
       console.log(error.message)
+    }
+  }
+
+  const LogOut = async () => {
+    try {
+      await signOut(auth);
+      // Handle successful logout logic (e.g., redirect to login page)
+    } catch (error) {
+      // Handle errors (e.g., display error message)
+      console.error("Error logging out:", error);
     }
   }
 
@@ -113,10 +133,17 @@ const AppContextProvider = (props) => {
 
   return (
     <appContext.Provider value={{
-      filterTags, setFilterTags, filteredCars,
-      setFilteredCars, FilterCars, searchText,
-      setSearchText, searchedCars, regDetails,
-      setRegDetails, loginDetails,
+      filterTags,
+      setFilterTags,
+      filteredCars,
+      setFilteredCars,
+      FilterCars,
+      searchText,
+      setSearchText,
+      searchedCars,
+      regDetails,
+      setRegDetails,
+      loginDetails,
       setLoginDetails,
       Register,
       menuIsOpen,
@@ -124,7 +151,12 @@ const AppContextProvider = (props) => {
       LoginUser,
       filterOpen,
       setFilterOpen,
-      ToggleMobileFilter
+      ToggleMobileFilter,
+      loggedInDetails,
+      setLoggedInDetails,
+      isLoggedIn,
+      setIsLoggedIn,
+      LogOut
     }}>
       {props.children}
     </appContext.Provider>

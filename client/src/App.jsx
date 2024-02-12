@@ -19,6 +19,7 @@ import SellCar from "./pages/SellCar";
 import AppContextProvider from "./context/AppContext";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +33,7 @@ function App() {
       <Route path="/sellCar" element={<SellCar />} />
       <Route path="/registerUser" element={<Register/>} />
       <Route path="/loginUser" element={<Login/>} />
+      <Route path="/dashboard" element={<Dashboard/>} />
     </Route>)
   );
 
