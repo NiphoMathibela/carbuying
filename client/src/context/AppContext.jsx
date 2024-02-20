@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { carData } from "../assets/carData";
 
@@ -39,16 +39,19 @@ const AppContextProvider = (props) => {
     name: "",
   })
 
+  //LoggedIn Details
+  const [loggedInName, setLoggedInName] = useState("");
+  const [loggedInEmail, setLoggedInEmail] = useState("");
+
   //Logged in status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState("");
 
   //Creating new users
   const Register = async () => {
 
     try {
-      const user = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
-      //Testing display name
-
+      const newUser = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
 
       //Posting to mongoDB User collection
       fetch("https://localhost:7069/user/User", {
@@ -63,34 +66,80 @@ const AppContextProvider = (props) => {
         .then((response) => response.json())
         .then((json) => console.log(json));
 
+        //Redirect to dashboard
+        window.location.href = "http://localhost:5173/dashboard"
+
       //Testing
-      console.log(user)
+      console.log(newUser)
       console.log(regDetails)
     } catch (error) {
       console.log(error.message)
     }
   }
+
+  // //Fetch user data
+  // fetch(`https://localhost:7069/user/User/${loginDetails.email}`)
+  // .then(response => response.json())
+  // .then(fetchedData => setLoggedInDetails(fetchedData))
+  // console.log("Currently logged in", loggedInDetails)
+  // .catch(error => setError(error));
 
   //Login existing users
   const LoginUser = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password);
-      console.log(regDetails)
-      setLoggedInDetails({name: loginDetails.email, email: loginDetails.email})
-    } catch (error) {
-      console.log(error.message)
-    }
+    signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        setLoggedInEmail(loginDetails.email)
+
+        //Redirect signed in user to dash board
+        window.location.href = "http://localhost:5173/dashboard/";
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   }
 
+//Signing out users
   const LogOut = async () => {
     try {
       await signOut(auth);
-      window.location.href = "/loginUser";
+      window.location.href = "http://localhost:5173/loginUser";
       // Handle successful logout logic (e.g., redirect to login page)
     } catch (error) {
       // Handle errors (e.g., display error message)
       console.error("Error logging out:", error);
     }
+  }
+
+  //Getting currently sighed in user
+  const CurrentUser = () => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        console.log(user);
+
+        const details = {
+          email: user.email,
+          name: user.displayName,
+        }
+        setLoggedInEmail(user.email);
+        setLoggedInName(user.displayName);
+
+        console.log(`User mail: ${loggedInEmail} Name: ${loggedInName}`)
+
+        return user;
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
   }
 
   //Filtering func
@@ -157,7 +206,8 @@ const AppContextProvider = (props) => {
       setLoggedInDetails,
       isLoggedIn,
       setIsLoggedIn,
-      LogOut
+      LogOut,
+      CurrentUser
     }}>
       {props.children}
     </appContext.Provider>
