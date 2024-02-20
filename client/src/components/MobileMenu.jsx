@@ -4,7 +4,7 @@ import { appContext } from '../context/AppContext';
 
 const MobileMenu = () => {
 
-    const { menuIsOpen, setIsMenuOpen } = useContext(appContext);
+    const { menuIsOpen, setIsMenuOpen, LogOut } = useContext(appContext);
 
     let navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const MobileMenu = () => {
             <div className='text-[#3563E9] text-lg font-medium'>
                 <li className='mt-4 mb-2 cursor-pointer list-none w-fit mx-auto active:bg-[#3563E9] active:text-white p-2 rounded-md' onClick={NavigateSellCar} >Sell a car</li>
                 <li className='my-2 cursor-pointer list-none w-fit mx-auto active:bg-[#3563E9] active:text-white p-2 rounded-md' onClick={NavigateLogin}>Login</li>
-                <li className='my-2 cursor-pointer list-none w-fit mx-auto active:bg-[#3563E9] active:text-white p-2 rounded-md' onClick={NavigateLogin}>Sign out</li>
+                <li className='my-2 cursor-pointer list-none w-fit mx-auto active:bg-[#3563E9] active:text-white p-2 rounded-md' onClick={LogOut}>Sign out</li>
             </div>
         </div>
     )

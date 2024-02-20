@@ -85,6 +85,7 @@ const AppContextProvider = (props) => {
   const LogOut = async () => {
     try {
       await signOut(auth);
+      window.location.href = "/loginUser";
       // Handle successful logout logic (e.g., redirect to login page)
     } catch (error) {
       // Handle errors (e.g., display error message)

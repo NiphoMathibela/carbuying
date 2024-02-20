@@ -26,6 +26,7 @@ const Login = () => {
       {menuIsOpen ? <MobileMenu /> : ""}
       <div className='p-5 mt-28'>
         <div className='w-full shadow-lg mx-auto rounded p-3 mt-4 max-w-md lg:p-5 '>
+          <h1 className=' h-16 text-4xl font-bold bg-gradient-to-r from-[#3563E9] from-10% via-[#819cef] via-30% to-[#d442fd] to-90% inline-block text-transparent bg-clip-text'>Login</h1>
           <div className='my-2'>
             <p className='text-left font-semibold text-lg'>Email</p>
             <input type="text" value={loginDetails.email} id='email' name='email' onChange={handleChange} className='rounded-md border border- w-full h-9 p-2 focus:outline-none focus:ring focus:border-blue-500' placeholder='Enter yout e-mail' />
