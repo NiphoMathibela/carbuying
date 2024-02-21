@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { appContext } from '../context/AppContext'
+import { auth} from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import MainButton from '../components/MainButton';
 import MobileMenu from "../components/MobileMenu";
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +11,7 @@ const Register = () => {
     let navigate = useNavigate();
 
     //Importing values from AppContext
-    const { regDetails, setRegDetails, Register, menuIsOpen } = useContext(appContext);
+    const { regDetails, setRegDetails, menuIsOpen, setIsLoggedIn } = useContext(appContext);
 
     //Handlin from data change
     const handleChange = (e) => {
@@ -19,6 +21,37 @@ const Register = () => {
             [name]: value
         }));
     };
+
+    //Creating new users
+  const Register = async () => {
+
+    try {
+      const newUser = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
+
+      //Posting to mongoDB User collection
+      fetch("https://localhost:7069/user/User", {
+        method: "POST",
+        body: JSON.stringify(regDetails),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "Accept": "application/json",
+          "content-type": "application/json"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .then(() => {
+            setIsLoggedIn(true);
+            navigate("/dashboard")
+        })
+
+      //Testing
+      console.log(newUser)
+      console.log(regDetails)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
     return (
         <div>

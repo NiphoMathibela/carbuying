@@ -50,45 +50,6 @@ const AppContextProvider = (props) => {
   //CurrentUser
   const [currentUser, setCurrentUser] = useState({});
 
-  //Creating new users
-  const Register = async () => {
-
-    try {
-      const newUser = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
-
-      //Posting to mongoDB User collection
-      fetch("https://localhost:7069/user/User", {
-        method: "POST",
-        body: JSON.stringify(regDetails),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "Accept": "application/json",
-          "content-type": "application/json"
-        }
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-
-        //Redirect to dashboard
-        window.location.href = "http://localhost:5173/dashboard"
-
-      //Testing
-      console.log(newUser)
-      console.log(regDetails)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
-
-  // //Fetch user data
-  // fetch(`https://localhost:7069/user/User/${loginDetails.email}`)
-  // .then(response => response.json())
-  // .then(fetchedData => setLoggedInDetails(fetchedData))
-  // console.log("Currently logged in", loggedInDetails)
-  // .catch(error => setError(error));
-
-  //Login existing users
-
 
 //Signing out users
   const LogOut = async () => {
@@ -158,7 +119,6 @@ const AppContextProvider = (props) => {
       setRegDetails,
       loginDetails,
       setLoginDetails,
-      Register,
       menuIsOpen,
       setIsMenuOpen,
       filterOpen,

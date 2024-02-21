@@ -35,19 +35,19 @@ const Dashboard = () => {
     //Fetch user data
     async function fetchUserData() {
       const url = `https://localhost:7069/user/User/${loggedInEmail}`; // assuming User/{userId} for GET requests
-    
+
       try {
         const response = await fetch(url, {
           method: 'GET', // Specify GET method
           headers: {
             'Accept': 'application/json', // Indicate expected JSON response
-          } 
+          }
         });
-    
+
         if (!response.ok) {
           throw new Error(`Error fetching user data: ${response.statusText}`);
         }
-    
+
         const data = await response.json();
         console.log('Fetched user data:', data);
         setCurrentUser(data);
@@ -78,19 +78,18 @@ const Dashboard = () => {
   ));
 
   return (
-  <div>
-    {menuIsOpen ? <MobileMenu/> : ""}
+    <div>
+      {menuIsOpen ? <MobileMenu /> : ""}
       <div className='mt-20 text-[#3563E9] w-9/12 mx-auto '>
-      <div className='text-left'>
-        <h2 className='h-16 text-3xl font-bold bg-gradient-to-r from-[#3563E9] from-10% via-[#819cef] via-30% to-[#d442fd] to-90% inline-block text-transparent bg-clip-text'>{isLoggedIn ? currentUser.name : "User"}'s Dashboard</h2>
-
-        <div className='my-6 w-full'>
-          <div><h4 className=' text-lg font-semibold'>Your current listings</h4></div>
-          {dashCars}
+        <div className='text-left'>
+          <h2 className='h-20 text-3xl font-bold bg-gradient-to-r from-[#3563E9] from-10% via-[#819cef] via-30% to-[#d442fd] to-90% inline-block text-transparent bg-clip-text'>{isLoggedIn ? currentUser.name : "User"}'s Dashboard</h2>
+          <div className='my-6 w-full'>
+            <div><h4 className=' text-lg font-semibold'>Your current listings</h4></div>
+            {dashCars}
+          </div>
         </div>
       </div>
     </div>
-  </div>
   )
 }
 

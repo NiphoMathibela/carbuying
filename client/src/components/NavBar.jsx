@@ -6,7 +6,7 @@ import { IoCloseSharp } from "react-icons/io5";
 
 const NavBar = () => {
 
-  const {menuIsOpen, setIsMenuOpen} = useContext(appContext);
+  const {menuIsOpen, setIsMenuOpen, isLoggedIn, LogOut} = useContext(appContext);
   let navigate = useNavigate();
 
   //Setting isMneuOpen to false to open menu
@@ -31,7 +31,8 @@ const NavBar = () => {
         {/* Appears on larger screens */}
         <div className='sm:flex flex-row justify-between hidden '>
             <p onClick={() => navigate("/sellCar")} className=' mr-4 cursor-pointer text-base font-normal text-[#3563E9] underline'>Sell a car</p>
-            <p onClick={() => navigate("/loginUser")} className='cursor-pointer w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign In / Up</p>
+            <p onClick={() => navigate("/dashboard")} className=' mr-4 cursor-pointer text-base font-normal text-[#3563E9] underline'>Dasboard</p>
+            {isLoggedIn ? <p onClick={LogOut} className='cursor-pointer w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign Out</p> : <p onClick={() => navigate("/loginUser")} className='cursor-pointer w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign In / Up</p>}
         </div>
     </div>
   )
