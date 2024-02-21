@@ -88,29 +88,14 @@ const AppContextProvider = (props) => {
   // .catch(error => setError(error));
 
   //Login existing users
-  const LoginUser = async () => {
-    signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-        setLoggedInEmail(loginDetails.email)
 
-        //Redirect signed in user to dash board
-        window.location.href = "http://localhost:5173/dashboard/";
-
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  }
 
 //Signing out users
   const LogOut = async () => {
     try {
       await signOut(auth);
       window.location.href = "http://localhost:5173/loginUser";
+      setIsLoggedIn(false);
       // Handle successful logout logic (e.g., redirect to login page)
     } catch (error) {
       // Handle errors (e.g., display error message)
@@ -176,7 +161,6 @@ const AppContextProvider = (props) => {
       Register,
       menuIsOpen,
       setIsMenuOpen,
-      LoginUser,
       filterOpen,
       setFilterOpen,
       ToggleMobileFilter,

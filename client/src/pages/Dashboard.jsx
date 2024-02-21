@@ -12,7 +12,7 @@ const Dashboard = () => {
   const userDetail = useParams();
   const userMail = userDetail.toString();
 
-  const { loggedInDetails, loggedInEmail, setLoggedInEmail, currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn, menuIsOpen } = useContext(appContext);
+  const { loggedInDetails, loggedInEmail, setLoggedInEmail, currentUser, setCurrentUser, isLoggedIn, menuIsOpen } = useContext(appContext);
 
   const CurrentUser = () => {
     onAuthStateChanged(auth, (user) => {
@@ -22,7 +22,6 @@ const Dashboard = () => {
         const uid = user.uid;
         console.log(user);
         setLoggedInEmail(user.email)
-        setIsLoggedIn(true);
         // ...
       } else {
         // User is signed out
@@ -35,7 +34,7 @@ const Dashboard = () => {
     CurrentUser();
     //Fetch user data
     async function fetchUserData() {
-      const url = `http://localhost:7069/user/User/${loggedInEmail}`; // assuming User/{userId} for GET requests
+      const url = `https://localhost:7069/user/User/${loggedInEmail}`; // assuming User/{userId} for GET requests
     
       try {
         const response = await fetch(url, {
@@ -51,16 +50,14 @@ const Dashboard = () => {
     
         const data = await response.json();
         console.log('Fetched user data:', data);
+        setCurrentUser(data);
         return data; // Optionally return the fetched data
       } catch (error) {
         console.error('Error fetching user data:', error);
         throw error; // Re-throw for potential error handling in calling code
       }
     }
-
-    let userDetails = fetchUserData();
-
-    setCurrentUser(userDetails)
+    fetchUserData();
   }, [])
 
 

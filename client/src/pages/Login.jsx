@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { appContext } from '../context/AppContext'
 import MainButton from '../components/MainButton';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import MobileMenu from '../components/MobileMenu';
 
 const Login = () => {
@@ -10,7 +12,7 @@ const Login = () => {
   let navigate = useNavigate();
 
   //Importing values from AppContext
-  const { loginDetails, setLoginDetails, LoginUser, menuIsOpen } = useContext(appContext);
+  const { loginDetails, setLoginDetails, menuIsOpen, setIsLoggedIn, setLoggedInEmail } = useContext(appContext);
 
   //Handlin from data change
   const handleChange = (e) => {
@@ -20,6 +22,24 @@ const Login = () => {
       [name]: value
     }));
   };
+
+  const LoginUser = async () => {
+    signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        setLoggedInEmail(loginDetails.email)
+        setIsLoggedIn(true);
+
+        //Redirect signed in user to dash board
+
+      }).then(() => {navigate("/dashboard")})
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  }
 
   return (
     <div>
