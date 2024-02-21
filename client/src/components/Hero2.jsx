@@ -18,7 +18,7 @@ const Hero2 = () => {
             <div className=' w-4/5 absolute mt-28 rounded-md mr-2 p-6 flex-1'>
                 <div className=' text-left'>
                     <p className='text-white font-bold text-5xl mb-4'>Buy your dream car</p>
-                    <div className=' w-6/12'>
+                    <div className=' w-[420px]'>
                     <SearchBar searchFunction={searchForCar}/>
                     </div>
                 </div>
