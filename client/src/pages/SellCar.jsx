@@ -65,7 +65,7 @@ const SellCar = () => {
                     <img className='w-full object-cover object-center rounded-md max-h-72' src='https://images.unsplash.com/photo-1604447199408-9798f9f64f88?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
                 </div>
 
-                <h2 className='text-3xl font-bold text-[#3563E9]'>Sell your car instantly</h2>
+                <h1 className='h-16 text-3xl font-bold bg-gradient-to-r from-[#3563E9] from-10% via-[#819cef] via-30% to-[#d442fd] to-90% inline-block text-transparent bg-clip-text'>Sell your car instantly</h1>
 
                 {/* Selling  car form */}
                 <div className=' w-full shadow-lg mx-auto rounded p-3 mt-4 lg:w-4/6 xl:w-2/5 lg:p-5'>

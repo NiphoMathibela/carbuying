@@ -7,6 +7,7 @@ import { IoCloseSharp } from "react-icons/io5";
 const NavBar = () => {
 
   const {menuIsOpen, setIsMenuOpen} = useContext(appContext);
+  let navigate = useNavigate();
 
   //Setting isMneuOpen to false to open menu
   const toggleMenu = () => {
@@ -15,7 +16,7 @@ const NavBar = () => {
   
   return (
     <div className='flex flex-row top-0 left-0 right-0 justify-between items-center p-6 w-full h-14 bg-white z-50 fixed shadow-lg rounded-b-md'>
-        <div className='text-xl text-[#3563E9] font-semibold'>
+        <div className='text-xl text-[#3563E9] font-semibold cursor-pointer' onClick={() => navigate("/")}>
             UpWheel
         </div>
 
@@ -29,8 +30,8 @@ const NavBar = () => {
 
         {/* Appears on larger screens */}
         <div className='sm:flex flex-row justify-between hidden '>
-            <a href='/sellCar' className=' mr-4 cursor-pointer text-base font-normal text-[#3563E9] underline'>Sell a car</a>
-            <a href='/loginUser' className=' w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign In / Up</a>
+            <p onClick={() => navigate("/sellCar")} className=' mr-4 cursor-pointer text-base font-normal text-[#3563E9] underline'>Sell a car</p>
+            <p onClick={() => navigate("/loginUser")} className='cursor-pointer w-28 h-8 bg-[#3563E9] rounded-md text-white align-baseline'>Sign In / Up</p>
         </div>
     </div>
   )

@@ -47,6 +47,9 @@ const AppContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
 
+  //CurrentUser
+  const [currentUser, setCurrentUser] = useState({});
+
   //Creating new users
   const Register = async () => {
 
@@ -116,32 +119,7 @@ const AppContextProvider = (props) => {
   }
 
   //Getting currently sighed in user
-  const CurrentUser = () => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        console.log(user);
-
-        const details = {
-          email: user.email,
-          name: user.displayName,
-        }
-        setLoggedInEmail(user.email);
-        setLoggedInName(user.displayName);
-
-        console.log(`User mail: ${loggedInEmail} Name: ${loggedInName}`)
-
-        return user;
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  }
-
+  
   //Filtering func
   const FilterCars = () => {
     carData.map((car => {
@@ -207,7 +185,10 @@ const AppContextProvider = (props) => {
       isLoggedIn,
       setIsLoggedIn,
       LogOut,
-      CurrentUser
+      currentUser,
+      setCurrentUser,
+      loggedInEmail,
+      setLoggedInEmail
     }}>
       {props.children}
     </appContext.Provider>

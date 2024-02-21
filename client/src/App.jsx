@@ -31,17 +31,18 @@ function App() {
       <Route path="/carSearch" element={<Search />} />
       <Route path="/car/:id" element={<CarDetail />} />
       <Route path="/sellCar" element={<SellCar />} />
-      <Route path="/registerUser" element={<Register/>} />
-      <Route path="/loginUser" element={<Login/>} />
-      <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/registerUser" element={<Register />} />
+      <Route path="/loginUser" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Route>)
   );
 
   return (
     <AppContextProvider>
       <div className=" w-full max-w-[1080]">
-        <NavBar />
+
         <RouterProvider router={router} />
+
       </div>
     </AppContextProvider>
 
@@ -55,6 +56,7 @@ const Root = () => {
     <>
       <div>
         <Link></Link>
+        <NavBar />
       </div>
 
       <div>
