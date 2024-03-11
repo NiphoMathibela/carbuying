@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose  = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const port = process.env.PORT || 3000;
@@ -18,6 +19,9 @@ mongoose.connect(dbString)
     console.log('Unable to connect to MongoDB Atlas!');
     console.error(error);
   });
+
+//allow cross origin
+app.use(cors());
 
 
 //car routes
