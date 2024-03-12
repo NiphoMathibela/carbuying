@@ -9,7 +9,7 @@ const User = require('../models/UserModels');
       const email = req.params.email;
   
       // Find user by email using Mongoose
-      const user = await User.find({ email: email }); // Search by email field
+      const user = await User.findOne({ email: email }); // Search by email field
   
       if (!user) {
         return res.status(404).send('User not found');
