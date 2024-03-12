@@ -29,7 +29,7 @@ const Register = () => {
       const newUser = await createUserWithEmailAndPassword(auth, regDetails.email, regDetails.password);
 
       //Posting to mongoDB User collection
-      fetch("https://localhost:7069/user/User", {
+      fetch("https://carbuying.onrender.com/user", {
         method: "POST",
         body: JSON.stringify(regDetails),
         headers: {

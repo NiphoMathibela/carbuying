@@ -35,7 +35,7 @@ const SellCar = () => {
     const submitSellForm = (e) => {
         e.preventDefault();
         console.log(sellForm);
-        fetch("https://localhost:7069/api/Cars", {
+        fetch("https://carbuying.onrender.com/cars", {
             method: "POST",
             body: JSON.stringify(sellForm),
             headers: {

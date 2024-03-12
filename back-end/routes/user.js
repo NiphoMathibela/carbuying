@@ -2,6 +2,27 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModels');
 
+
+  // Get a single user
+  router.get('/:email', async (req, res) => {
+    try {
+      const email = req.params.email;
+  
+      // Find user by email using Mongoose
+      const user = await User.find({ email: email }); // Search by email field
+  
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+  
+      res.json(user);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal server error');
+    }
+  });
+
+
 // Get all users
 router.get('/', async (req, res) => {
     try {
@@ -10,11 +31,6 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
-  });
-  
-  // Get a single user
-  router.get('/:id', getUser, (req, res) => {
-    res.json(res.user);
   });
   
   // Create a new user
@@ -41,7 +57,7 @@ router.get('/', async (req, res) => {
   });
   
   // Update a user
-  router.put('/:id', getUser, async (req, res) => {
+  router.put('/:email', getUser, async (req, res) => {
     if (req.body.name != null) {
       res.user.name = req.body.name;
     }
@@ -63,7 +79,7 @@ router.get('/', async (req, res) => {
       });
       
       // Delete a user
-      router.delete('/:id', getUser, async (req, res) => {
+      router.delete('/:email', getUser, async (req, res) => {
       try {
       await res.user.remove();
       res.json({ message: 'User deleted' });
@@ -77,7 +93,7 @@ router.get('/', async (req, res) => {
       async function getUser(req, res, next) {
       let user;
       try {
-      user = await User.findById(req.params.id);
+      user = await User.findById(req.params.email);
       if (user == null) {
       return res.status(404).json({ message: 'Cannot find user' });
       }

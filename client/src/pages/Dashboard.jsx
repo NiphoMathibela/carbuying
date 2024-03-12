@@ -34,7 +34,7 @@ const Dashboard = () => {
     CurrentUser();
     //Fetch user data
     async function fetchUserData() {
-      const url = `https://localhost:7069/user/User/${loggedInEmail}`; // assuming User/{userId} for GET requests
+      const url = `https://carbuying.onrender.com/users/${loggedInEmail}`; // assuming User/{userId} for GET requests
 
       try {
         const response = await fetch(url, {
