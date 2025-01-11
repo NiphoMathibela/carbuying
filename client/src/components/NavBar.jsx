@@ -7,7 +7,6 @@ import { FaCar, FaSearch, FaPlus } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const NavBar = () => {
-
   const {menuIsOpen, setIsMenuOpen, isLoggedIn, LogOut} = useContext(appContext);
   let navigate = useNavigate();
   const location = useLocation();
@@ -20,7 +19,6 @@ const NavBar = () => {
     { path: "/", icon: FaCar, label: "Home" },
     { path: "/carSearch", icon: FaSearch, label: "Search Cars" },
     { path: "/post-car", icon: FaPlus, label: "Post Car" },
-    { path: "/sellCar", icon: FaCar, label: "Sell a car" },
     { path: "/dashboard", icon: FaCar, label: "Dashboard" },
   ];
 
@@ -38,7 +36,7 @@ const NavBar = () => {
             <span className="font-bold text-xl text-gray-800">UpWheel</span>
           </Link>
 
-          <div className="flex space-x-4">
+          <div className="hidden sm:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -51,18 +49,6 @@ const NavBar = () => {
               >
                 <item.icon className="text-lg" />
                 <span>{item.label}</span>
-                {isActive(item.path) && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
-                    initial={false}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    }}
-                  />
-                )}
               </Link>
             ))}
           </div>
@@ -104,4 +90,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBar;
