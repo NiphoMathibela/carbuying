@@ -1,37 +1,42 @@
 const express = require('express');
-const app = express();
 const mongoose  = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const User = "./models/UserModel";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const dbString = process.env.MONGODB_URI;
 
-//Allow api to accept json data
-app.use(express.json());
-
-//Connect to database
-mongoose.connect(dbString)
-  .then(() => {
-    console.log('Successfully connected to MongoDB Atlas!');
-  })
-  .catch((error) => {
-    console.log('Unable to connect to MongoDB Atlas!');
-    console.error(error);
-  });
-
-//allow cross origin
+// Middleware
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Connect to database
+mongoose.connect(dbString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch((error) => {
+    console.error('Error connecting to MongoDB:', error.message);
+});
 
 //car routes
 const carRouter = require('./routes/car');
-app.use('/cars', carRouter);
+app.use('/api/cars', carRouter);
 
 //user routes
 const userRouter = require('./routes/user');
-app.use('/users', userRouter);
+app.use('/api/users', userRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 //Simple get route
 app.get('/', (req, res) => {
@@ -40,5 +45,5 @@ app.get('/', (req, res) => {
 
 // Start the server and listen on the specified port
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });

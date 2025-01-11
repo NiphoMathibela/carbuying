@@ -1,108 +1,86 @@
 const express = require('express');
+const User = require('../models/User');
+const auth = require('../middleware/auth');
 const router = express.Router();
-const User = require('../models/UserModels');
 
-
-  // Get a single user
-  router.get('/:email', async (req, res) => {
+// Register a new user
+router.post('/register', async (req, res) => {
     try {
-      const email = req.params.email;
-  
-      // Find user by email using Mongoose
-      const user = await User.findOne({ email: email }); // Search by email field
-  
-      if (!user) {
-        return res.status(404).send('User not found');
-      }
-  
-      res.json(user);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Internal server error');
+        const user = new User(req.body);
+        const token = await user.generateAuthToken();
+        res.status(201).send({ user, token });
+    } catch (error) {
+        res.status(400).send(error);
     }
-  });
+});
 
+// Login user
+router.post('/login', async (req, res) => {
+    try {
+        const user = await User.findByCredentials(req.body.email, req.body.password);
+        const token = await user.generateAuthToken();
+        res.send({ user, token });
+    } catch (error) {
+        res.status(400).send({ error: 'Unable to login' });
+    }
+});
 
-// Get all users
-router.get('/', async (req, res) => {
+// Logout user
+router.post('/logout', auth, async (req, res) => {
     try {
-      const users = await User.find();
-      res.json(users);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
+        req.user.tokens = req.user.tokens.filter((token) => {
+            return token.token !== req.token;
+        });
+        await req.user.save();
+        res.send();
+    } catch (error) {
+        res.status(500).send();
     }
-  });
-  
-  // Create a new user
-  router.post('/', async (req, res) => {
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      lastName: req.body.lastName,
-      userType: req.body.userType,
-    });
-    user.save().then(
-        () => {
-          res.status(201).json({
-            message: 'Post saved successfully!'
-          });
-        }
-      ).catch(
-        (error) => {
-          res.status(400).json({
-            error: error
-          });
-        }
-      );
-  });
-  
-  // Update a user
-  router.put('/:email', getUser, async (req, res) => {
-    if (req.body.name != null) {
-      res.user.name = req.body.name;
-    }
-  
-    if (req.body.email != null) {
-      res.user.email = req.body.email;
-    }
-  
-    if (req.body.age != null) {
-      res.user.age = req.body.age;
-    }
-  
+});
+
+// Logout all sessions
+router.post('/logoutAll', auth, async (req, res) => {
     try {
-      const updatedUser = await res.user.save();
-      res.json(updatedUser);
-    }catch (err) {
-      res.status(400).json({ message: err.message });
-      }
-      });
-      
-      // Delete a user
-      router.delete('/:email', getUser, async (req, res) => {
-      try {
-      await res.user.remove();
-      res.json({ message: 'User deleted' });
-      } catch (err) {
-      res.status(500).json({ message: err.message });
-      }
-      });
-  
-      
-      
-      async function getUser(req, res, next) {
-      let user;
-      try {
-      user = await User.findById(req.params.email);
-      if (user == null) {
-      return res.status(404).json({ message: 'Cannot find user' });
-      }
-      } catch (err) {
-      return res.status(500).json({ message: err.message });
-      }
-      
-      res.user = user;
-      next();
-      }
-      
-      module.exports = router;
+        req.user.tokens = [];
+        await req.user.save();
+        res.send();
+    } catch (error) {
+        res.status(500).send();
+    }
+});
+
+// Get user profile
+router.get('/me', auth, async (req, res) => {
+    res.send(req.user);
+});
+
+// Update user profile
+router.patch('/me', auth, async (req, res) => {
+    const updates = Object.keys(req.body);
+    const allowedUpdates = ['name', 'email', 'password'];
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' });
+    }
+
+    try {
+        updates.forEach((update) => req.user[update] = req.body[update]);
+        await req.user.save();
+        res.send(req.user);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
+// Delete user account
+router.delete('/me', auth, async (req, res) => {
+    try {
+        await req.user.remove();
+        res.send(req.user);
+    } catch (error) {
+        res.status(500).send();
+    }
+});
+
+module.exports = router;
