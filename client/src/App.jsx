@@ -20,6 +20,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { AnimatePresence } from "framer-motion";
+import Footer from "./components/Footer";
 
 function App() {
   //Defining routes
@@ -57,6 +58,7 @@ function Root() {
           <Outlet />
         </AnimatePresence>
       </main>
+      <Footer/>
     </>
   );
 }
